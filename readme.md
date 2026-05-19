@@ -183,7 +183,3 @@ Chrome opens → form fills → screenshot saved → sheet updates to ✅ done �
 <p align="center">
   <img src="https://capsule-render.vercel.app/api?type=waving&color=0:06b6d4,100:6366f1&height=120&section=footer&animation=fadeIn" />
 </p>
-
-<p align="center">
-  Built by <a href="https://github.com/nevildhinoja"><b>Nevil Dhinoja</b></a> · B.Tech Computer Engineering · CHARUSAT University
-</p>
