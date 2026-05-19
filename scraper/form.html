@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Job Application Form</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: #0f172a;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .card {
+            background: #1e293b;
+            border: 1px solid #334155;
+            border-radius: 12px;
+            padding: 40px;
+            width: 460px;
+        }
+
+        h2 {
+            color: #f1f5f9;
+            margin-bottom: 8px;
+            font-size: 1.4rem;
+        }
+
+        p.sub {
+            color: #94a3b8;
+            font-size: 0.85rem;
+            margin-bottom: 28px;
+        }
+
+        label {
+            display: block;
+            color: #cbd5e1;
+            font-size: 0.82rem;
+            margin-bottom: 6px;
+            margin-top: 16px;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px 14px;
+            background: #0f172a;
+            border: 1px solid #334155;
+            border-radius: 8px;
+            color: #f1f5f9;
+            font-size: 0.95rem;
+            outline: none;
+            transition: border 0.2s;
+        }
+
+        input:focus {
+            border-color: #6366f1;
+        }
+
+        button {
+            margin-top: 28px;
+            width: 100%;
+            padding: 12px;
+            background: #6366f1;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        button:hover {
+            background: #4f46e5;
+        }
+
+        #result {
+            margin-top: 20px;
+            padding: 14px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            display: none;
+        }
+
+        .success {
+            background: #14532d;
+            color: #86efac;
+            display: block !important;
+        }
+
+        .error {
+            background: #7f1d1d;
+            color: #fca5a5;
+            display: block !important;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="card">
+        <h2>Job Application</h2>
+        <p class="sub">Automated form — filled by Selenium</p>
+
+        <label for="company">Company</label>
+        <input type="text" id="company" name="company" placeholder="e.g. OpenAI" />
+
+        <label for="role">Role</label>
+        <input type="text" id="role" name="role" placeholder="e.g. ML Engineer" />
+
+        <label for="salary">Salary</label>
+        <input type="text" id="salary" name="salary" placeholder="e.g. $200k" />
+
+        <label for="deadline">Deadline</label>
+        <input type="text" id="deadline" name="deadline" placeholder="e.g. 2025-11-01" />
+
+        <button type="button" onclick="submitForm()">Submit Application</button>
+        <div id="result"></div>
+    </div>
+
+    <script>
+        function submitForm() {
+            const company = document.getElementById('company').value.trim();
+            const role = document.getElementById('role').value.trim();
+            const salary = document.getElementById('salary').value.trim();
+            const deadline = document.getElementById('deadline').value.trim();
+            const result = document.getElementById('result');
+
+            if (!company || !role) {
+                result.className = 'error';
+                result.textContent = 'Company and Role are required.';
+                return;
+            }
+
+            result.className = 'success';
+            result.textContent = `Application submitted for ${role} at ${company}. We will reach out by ${deadline || 'TBD'}.`;
+            document.title = 'SUBMITTED';   // Selenium checks this
+        }
+    </script>
+</body>
+
+</html>
